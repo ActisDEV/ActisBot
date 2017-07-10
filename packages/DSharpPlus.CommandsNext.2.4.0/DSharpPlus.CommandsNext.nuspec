@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>DSharpPlus.CommandsNext</id>
+    <version>2.4.0</version>
+    <authors>Naamloos, afroraydude, DrCreo, Death, Axiom, Emzi0767, and contributors</authors>
+    <owners>Naamloos, afroraydude, DrCreo, Death, Axiom, Emzi0767, and contributors</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <licenseUrl>https://github.com/NaamloosDT/DSharpPlus/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/NaamloosDT/DSharpPlus</projectUrl>
+    <iconUrl>https://raw.githubusercontent.com/NaamloosDT/DSharpPlus/master/logo/dsharpplus.png</iconUrl>
+    <description>Advanced command framework for DSharpPlus.</description>
+    <tags>Discord, Discord API, Discord Bots, Chat, DSharp, DSharpPlus, Commands</tags>
+    <repository type="Git" url="https://github.com/NaamloosDT/DSharpPlus" />
+    <dependencies>
+      <group targetFramework=".NETStandard2.0">
+        <dependency id="DSharpPlus" version="2.4.0" exclude="Build,Analyzers" />
+        <dependency id="NETStandard.Library" version="1.6.1" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework=".NETStandard1.1">
+        <dependency id="DSharpPlus" version="2.4.0" exclude="Build,Analyzers" />
+        <dependency id="NETStandard.Library" version="1.6.1" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework=".NETStandard1.3">
+        <dependency id="DSharpPlus" version="2.4.0" exclude="Build,Analyzers" />
+        <dependency id="NETStandard.Library" version="1.6.1" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework=".NETFramework4.7">
+        <dependency id="DSharpPlus" version="2.4.0" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework=".NETFramework4.6">
+        <dependency id="DSharpPlus" version="2.4.0" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework=".NETFramework4.5">
+        <dependency id="DSharpPlus" version="2.4.0" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+</package>

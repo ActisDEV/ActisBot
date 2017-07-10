@@ -1,0 +1,608 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DSharpPlus.CommandsNext</name>
+    </assembly>
+    <members>
+        <member name="T:DSharpPlus.CommandsNext.Attributes.AliasesAttribute">
+            <summary>
+            Adds aliases to this command or group.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.CommandsNext.Attributes.AliasesAttribute.Aliases">
+            <summary>
+            Gets this group's aliases.
+            </summary>
+        </member>
+        <member name="M:DSharpPlus.CommandsNext.Attributes.AliasesAttribute.#ctor(System.String[])">
+            <summary>
+            Adds aliases to this command or group.
+            </summary>
+            <param name="aliases">Aliases to add to this command or group.</param>
+        </member>
+        <member name="T:DSharpPlus.CommandsNext.Attributes.CommandAttribute">
+            <summary>
+            Marks this method as a command.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.CommandsNext.Attributes.CommandAttribute.Name">
+            <summary>
+            Gets the name of this command.
+            </summary>
+        </member>
+        <member name="M:DSharpPlus.CommandsNext.Attributes.CommandAttribute.#ctor(System.String)">
+            <summary>
+            Marks this method as a command with specified name.
+            </summary>
+            <param name="name">Name of this command.</param>
+        </member>
+        <member name="T:DSharpPlus.CommandsNext.Attributes.ConditionBaseAttribute">
+            <summary>
+            Represents a base for all permission check attributes.
+            </summary>
+        </member>
+        <member name="M:DSharpPlus.CommandsNext.Attributes.ConditionBaseAttribute.CanExecute(DSharpPlus.CommandsNext.CommandContext)">
+            <summary>
+            Asynchronously checks whether this command can be executed within given context.
+            </summary>
+            <param name="ctx">Context to check execution ability for.</param>
+            <returns></returns>
+        </member>
+        <member name="T:DSharpPlus.CommandsNext.Attributes.DescriptionAttribute">
+            <summary>
+            Gives this command, group, or argument a description, which is used when listing help.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.CommandsNext.Attributes.DescriptionAttribute.Description">
+            <summary>
+            Gets the description for this command, group, or argument.
+            </summary>
+        </member>
+        <member name="M:DSharpPlus.CommandsNext.Attributes.DescriptionAttribute.#ctor(System.String)">
+            <summary>
+            Gives this command, group, or argument a description, which is used when listing help.
+            </summary>
+            <param name="description"></param>
+        </member>
+        <member name="T:DSharpPlus.CommandsNext.Attributes.GroupAttribute">
+            <summary>
+            Marks this class as a command group.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.CommandsNext.Attributes.GroupAttribute.Name">
+            <summary>
+            Gets the name of this group.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.CommandsNext.Attributes.GroupAttribute.CanInvokeWithoutSubcommand">
+            <summary>
+            Whether or not this group can be invoked without subcommand. If this is set to true, the group needs to have a ExecuteGroup method.
+            </summary>
+        </member>
+        <member name="M:DSharpPlus.CommandsNext.Attributes.GroupAttribute.#ctor(System.String)">
+            <summary>
+            Marks this class as a command group with specified name.
+            </summary>
+            <param name="name">Name of this group.</param>
+        </member>
+        <member name="T:DSharpPlus.CommandsNext.Attributes.HiddenAttribute">
+            <summary>
+            Marks this command or group as hidden.
+            </summary>
+        </member>
+        <member name="M:DSharpPlus.CommandsNext.Attributes.HiddenAttribute.#ctor">
+            <summary>
+            Marks this command or group as hidden.
+            </summary>
+        </member>
+        <member name="T:DSharpPlus.CommandsNext.Attributes.PermissionStringAttribute">
+            <summary>
+            Defines a readable name for this permission.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.CommandsNext.Attributes.PermissionStringAttribute.String">
+            <summary>
+            Gets the readable name for this permission.
+            </summary>
+        </member>
+        <member name="M:DSharpPlus.CommandsNext.Attributes.PermissionStringAttribute.#ctor(System.String)">
+            <summary>
+            Defines a readable name for this permission.
+            </summary>
+            <param name="str">Readable name for this permission.</param>
+        </member>
+        <member name="T:DSharpPlus.CommandsNext.Attributes.RemainingTextAttribute">
+            <summary>
+            Indicates that the command argument takes the rest of the input without parsing.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.CommandsNext.Attributes.RequirePermissionsAttribute.Permissions">
+            <summary>
+            Gets the permissions required by this attribute.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.CommandsNext.Attributes.RequirePermissionsAttribute.IgnoreDms">
+            <summary>
+            Gets or sets this check's behaviour in DMs. True means the check will always pass in DMs, whereas false means that it will always fail.
+            </summary>
+        </member>
+        <member name="T:DSharpPlus.CommandsNext.CustomPrefixPredicate">
+            <summary>
+            Represents a delegate for a function that takes a message, and returns the position of the start of command invocation in the message. It has to return -1 if prefix is not present.
+            </summary>
+            <param name="msg">Message to check for prefix.</param>
+            <returns>Position of the command invocation or -1 if not present.</returns>
+        </member>
+        <member name="T:DSharpPlus.CommandsNext.CommandsNextConfiguration">
+            <summary>
+            Represents a configuration for <see cref="T:DSharpPlus.CommandsNext.CommandsNextModule"/>.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.CommandsNext.CommandsNextConfiguration.StringPrefix">
+            <summary>
+            Gets or sets the string prefix used for commands. By default has no value.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.CommandsNext.CommandsNextConfiguration.CustomPrefixPredicate">
+            <summary>
+            Gets or sets the custom prefix predicate used for commands. By default is not specified.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.CommandsNext.CommandsNextConfiguration.EnableMentionPrefix">
+            <summary>
+            Gets or sets whether to allow bot's mention as command prefix. Defaults to true.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.CommandsNext.CommandsNextConfiguration.SelfBot">
+            <summary>
+            Gets or sets whether the bot should only respond to messages from its own account. This is used for selfbots. Defaults to false.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.CommandsNext.CommandsNextConfiguration.CaseSensitive">
+            <summary>
+            Gets or sets whether the commands should be case-sensitive. Defaults to true.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.CommandsNext.CommandsNextConfiguration.EnableDefaultHelp">
+            <summary>
+            Gets or sets whether to enable default help command. Disable this if you want to make your own help command. Defaults to true.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.CommandsNext.CommandsNextConfiguration.EnableDms">
+            <summary>
+            Gets or sets whether to enable commands via direct messages. Defaults to true.
+            </summary>
+        </member>
+        <member name="T:DSharpPlus.CommandsNext.CommandsNextModule">
+            <summary>
+            This is the class which handles command registration, management, and execution. 
+            </summary>
+        </member>
+        <member name="E:DSharpPlus.CommandsNext.CommandsNextModule.CommandExecuted">
+            <summary>
+            Triggered whenever a command executes successfully.
+            </summary>
+        </member>
+        <member name="E:DSharpPlus.CommandsNext.CommandsNextModule.CommandErrored">
+            <summary>
+            Triggered whenever a command throws an exception during execution.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.CommandsNext.CommandsNextModule.Client">
+            <summary>
+            Gets the instance of <see cref="T:DSharpPlus.DiscordClient"/> for which this module is registered.
+            </summary>
+        </member>
+        <member name="M:DSharpPlus.CommandsNext.CommandsNextModule.Setup(DSharpPlus.DiscordClient)">
+            <summary>
+            DO NOT USE THIS MANUALLY.
+            </summary>
+            <param name="client">DO NOT USE THIS MANUALLY.</param>
+            <exception cref="T:System.InvalidOperationException"/>
+        </member>
+        <member name="M:DSharpPlus.CommandsNext.CommandsNextModule.SudoAsync(DSharpPlus.DiscordUser,DSharpPlus.DiscordChannel,System.String)">
+            <summary>
+            Creates a fake message and executes a command using said message as context. Note that any command that looks the message up might throw.
+            </summary>
+            <param name="user">User to execute as.</param>
+            <param name="channel">Channel to execute in.</param>
+            <param name="message">Contents of the fake message.</param>
+            <returns></returns>
+        </member>
+        <member name="T:DSharpPlus.CommandsNext.CommandsNextUtilities">
+            <summary>
+            Various CommandsNext-related utilities.
+            </summary>
+        </member>
+        <member name="M:DSharpPlus.CommandsNext.CommandsNextUtilities.GetStringPrefixLength(DSharpPlus.DiscordMessage,System.String)">
+            <summary>
+            Checks whether the message has a specified string prefix.
+            </summary>
+            <param name="msg">Message to check.</param>
+            <param name="str">String to check for.</param>
+            <returns>Positive number if the prefix is present, -1 otherwise.</returns>
+        </member>
+        <member name="M:DSharpPlus.CommandsNext.CommandsNextUtilities.GetMentionPrefixLength(DSharpPlus.DiscordMessage,DSharpPlus.DiscordUser)">
+            <summary>
+            Checks whether the message contains a specified mention prefix.
+            </summary>
+            <param name="msg">Message to check.</param>
+            <param name="user">User to check for.</param>
+            <returns>Positive number if the prefix is present, -1 otherwise.</returns>
+        </member>
+        <member name="M:DSharpPlus.CommandsNext.CommandsNextUtilities.ConvertArgument``1(System.String,DSharpPlus.CommandsNext.CommandContext)">
+            <summary>
+            Converts a string to specified type.
+            </summary>
+            <typeparam name="T">Type to convert to.</typeparam>
+            <param name="value">Value to convert.</param>
+            <param name="ctx">Context in which to convert to.</param>
+            <returns>Converted object.</returns>
+        </member>
+        <member name="M:DSharpPlus.CommandsNext.CommandsNextUtilities.ConvertArgument(System.String,DSharpPlus.CommandsNext.CommandContext,System.Type)">
+            <summary>
+            Converts a string to specified type.
+            </summary>
+            <param name="value">Value to convert.</param>
+            <param name="ctx">Context in which to convert to.</param>
+            <param name="type">Type to convert to.</param>
+            <returns>Converted object.</returns>
+        </member>
+        <member name="M:DSharpPlus.CommandsNext.CommandsNextUtilities.RegisterConverter``1(DSharpPlus.CommandsNext.Converters.IArgumentConverter{``0})">
+            <summary>
+            Registers an argument converter for specified type.
+            </summary>
+            <typeparam name="T">Type for which to register the converter.</typeparam>
+            <param name="converter">Converter to register.</param>
+        </member>
+        <member name="M:DSharpPlus.CommandsNext.CommandsNextUtilities.UnregisterConverter``1">
+            <summary>
+            Unregisters an argument converter for specified type.
+            </summary>
+            <typeparam name="T">Type for which to unregister the converter.</typeparam>
+        </member>
+        <member name="M:DSharpPlus.CommandsNext.CommandsNextUtilities.RegisterUserFriendlyTypeName``1(System.String)">
+            <summary>
+            Registers a user-friendly type name.
+            </summary>
+            <typeparam name="T">Type to register the name for.</typeparam>
+            <param name="value">Name to register.</param>
+        </member>
+        <member name="T:DSharpPlus.CommandsNext.Converters.IArgumentConverter">
+            <summary>
+            Argument converter abstract.
+            </summary>
+        </member>
+        <member name="T:DSharpPlus.CommandsNext.Converters.IArgumentConverter`1">
+            <summary>
+            Represents a converter for specific argument type.
+            </summary>
+            <typeparam name="T">Type for which the converter is to be registered.</typeparam>
+        </member>
+        <member name="T:DSharpPlus.CommandsNext.DiscordClientExtensions">
+            <summary>
+            Defines various extensions specific to CommandsNext.
+            </summary>
+        </member>
+        <member name="M:DSharpPlus.CommandsNext.DiscordClientExtensions.UseCommandsNext(DSharpPlus.DiscordClient,DSharpPlus.CommandsNext.CommandsNextConfiguration)">
+            <summary>
+            Enables CommandsNext module on this <see cref="T:DSharpPlus.DiscordClient"/>.
+            </summary>
+            <param name="client">Client to enable CommandsNext for.</param>
+            <param name="cfg">CommandsNext configuration to use.</param>
+            <returns>Created <see cref="T:DSharpPlus.CommandsNext.CommandsNextModule"/>.</returns>
+        </member>
+        <member name="M:DSharpPlus.CommandsNext.DiscordClientExtensions.UseCommandsNext(DSharpPlus.DiscordShardedClient,DSharpPlus.CommandsNext.CommandsNextConfiguration)">
+            <summary>
+            Enables CommandsNext module on all shards in this <see cref="T:DSharpPlus.DiscordShardedClient"/>.
+            </summary>
+            <param name="client">Client to enable CommandsNext for.</param>
+            <param name="cfg">CommandsNext configuration to use.</param>
+            <returns>A dictionary of created <see cref="T:DSharpPlus.CommandsNext.CommandsNextModule"/>, indexed by shard id..</returns>
+        </member>
+        <member name="M:DSharpPlus.CommandsNext.DiscordClientExtensions.GetCommandsNext(DSharpPlus.DiscordClient)">
+            <summary>
+            Gets the active CommandsNext module for this client.
+            </summary>
+            <param name="client">Client to get CommandsNext module from.</param>
+            <returns>The module, or null if not activated.</returns>
+        </member>
+        <member name="M:DSharpPlus.CommandsNext.DiscordClientExtensions.GetCommandsNext(DSharpPlus.DiscordShardedClient)">
+            <summary>
+            Gets the active CommandsNext modules for all shards in this client.
+            </summary>
+            <param name="client">Client to get CommandsNext instances from.</param>
+            <returns>A dictionary of the modules, indexed by shard id.</returns>
+        </member>
+        <member name="M:DSharpPlus.CommandsNext.DiscordClientExtensions.GetPermissionString(DSharpPlus.CommandsNext.Permission)">
+            <summary>
+            Converts this <see cref="T:DSharpPlus.CommandsNext.Permission"/> into human-readable format.
+            </summary>
+            <param name="perm">Permission enumeration to convert.</param>
+            <returns>Human-readable permissions.</returns>
+        </member>
+        <member name="T:DSharpPlus.CommandsNext.Command">
+            <summary>
+            Represents a command.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.CommandsNext.Command.Name">
+            <summary>
+            Gets this command's name.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.CommandsNext.Command.QualifiedName">
+            <summary>
+            Gets this command's qualified name (i.e. one that includes all module names).
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.CommandsNext.Command.Aliases">
+            <summary>
+            Gets this command's alises.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.CommandsNext.Command.Arguments">
+            <summary>
+            Gets this command's arguments.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.CommandsNext.Command.Parent">
+            <summary>
+            Gets this command's parent module, if any.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.CommandsNext.Command.Description">
+            <summary>
+            Gets this command's description.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.CommandsNext.Command.IsHidden">
+            <summary>
+            Gets whether this command is hidden.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.CommandsNext.Command.ExecutionChecks">
+            <summary>
+            Gets a collection of execution pre-checks for this command.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.CommandsNext.Command.Callable">
+            <summary>
+            Gets this command's callable.
+            </summary>
+        </member>
+        <member name="M:DSharpPlus.CommandsNext.Command.op_Equality(DSharpPlus.CommandsNext.Command,DSharpPlus.CommandsNext.Command)">
+            <summary>
+            Checks whether this command is equal to another one.
+            </summary>
+            <param name="cmd1">Command to compare to.</param>
+            <param name="cmd2">Command to compare.</param>
+            <returns>Whether the two commands are equal.</returns>
+        </member>
+        <member name="M:DSharpPlus.CommandsNext.Command.op_Inequality(DSharpPlus.CommandsNext.Command,DSharpPlus.CommandsNext.Command)">
+            <summary>
+            Checks whether this command is not equal to another one.
+            </summary>
+            <param name="cmd1">Command to compare to.</param>
+            <param name="cmd2">Command to compare.</param>
+            <returns>Whether the two commands are not equal.</returns>
+        </member>
+        <member name="M:DSharpPlus.CommandsNext.Command.Equals(System.Object)">
+            <summary>
+            Checks whether this command equals another object.
+            </summary>
+            <param name="obj">Object to compare to.</param>
+            <returns>Whether this command is equal to another object.</returns>
+        </member>
+        <member name="M:DSharpPlus.CommandsNext.Command.GetHashCode">
+            <summary>
+            Gets this command's hash code.
+            </summary>
+            <returns>This command's hash code.</returns>
+        </member>
+        <member name="M:DSharpPlus.CommandsNext.Command.ToString">
+            <summary>
+            Returns a string representation of this command.
+            </summary>
+            <returns>String representation of this command.</returns>
+        </member>
+        <member name="P:DSharpPlus.CommandsNext.CommandArgument.Name">
+            <summary>
+            Gets this argument's name.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.CommandsNext.CommandArgument.Type">
+            <summary>
+            Gets this argument's type.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.CommandsNext.CommandArgument.IsOptional">
+            <summary>
+            Gets whether this argument is optional.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.CommandsNext.CommandArgument.DefaultValue">
+            <summary>
+            Gets whether this argument has a default value.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.CommandsNext.CommandArgument.IsCatchAll">
+            <summary>
+            Gets whether this argument catches all remaining arguments.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.CommandsNext.CommandArgument.Description">
+            <summary>
+            Gets this argument's description.
+            </summary>
+        </member>
+        <member name="T:DSharpPlus.CommandsNext.CommandGroup">
+            <summary>
+            Represents a command group.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.CommandsNext.CommandGroup.Children">
+            <summary>
+            Gets all the commands that belong to this module.
+            </summary>
+        </member>
+        <member name="T:DSharpPlus.CommandsNext.CommandResult">
+            <summary>
+            Represents a command's execution result.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.CommandsNext.CommandResult.IsSuccessful">
+            <summary>
+            Gets whether the command execution succeeded.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.CommandsNext.CommandResult.Exception">
+            <summary>
+            Gets the exception (if any) that occured when executing the command.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.CommandsNext.CommandResult.Context">
+            <summary>
+            Gets the context in which the command was executed.
+            </summary>
+        </member>
+        <member name="T:DSharpPlus.CommandsNext.CommandContext">
+            <summary>
+            Represents a context in which a command is executed.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.CommandsNext.CommandContext.Client">
+            <summary>
+            Gets the client which received the message.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.CommandsNext.CommandContext.Message">
+            <summary>
+            Gets the message that triggered the execution.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.CommandsNext.CommandContext.Channel">
+            <summary>
+            Gets the channel in which the execution was triggered,
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.CommandsNext.CommandContext.Guild">
+            <summary>
+            Gets the guild in which the execution was triggered. This property is null for commands sent over direct messages.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.CommandsNext.CommandContext.User">
+            <summary>
+            Gets the user who triggered the execution.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.CommandsNext.CommandContext.Member">
+            <summary>
+            Gets the member who triggered the execution. This property is null for commands sent over direct messages.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.CommandsNext.CommandContext.Command">
+            <summary>
+            Gets the command that is being executed.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.CommandsNext.CommandContext.RawArgumentString">
+            <summary>
+            Gets the raw argument string passed to the command.
+            </summary>
+        </member>
+        <member name="M:DSharpPlus.CommandsNext.CommandContext.RespondAsync(System.String,System.Boolean,DSharpPlus.DiscordEmbed)">
+            <summary>
+            Quickly respond to the message that triggered the command.
+            </summary>
+            <param name="content">Message to respond with.</param>
+            <param name="is_tts">Whether the message is to be spoken aloud.</param>
+            <param name="embed">Embed to attach.</param>
+            <returns></returns>
+        </member>
+        <member name="M:DSharpPlus.CommandsNext.CommandContext.RespondWithFileAsync(System.IO.Stream,System.String,System.String,System.Boolean,DSharpPlus.DiscordEmbed)">
+            <summary>
+            Quickly respond with a file to the message that triggered the command.
+            </summary>
+            <param name="file_data">Stream containing the data to attach as a file.</param>
+            <param name="file_name">Name of the file to send.</param>
+            <param name="content">Message to respond with.</param>
+            <param name="is_tts">Whether the message is to be spoken aloud.</param>
+            <param name="embed">Embed to attach to the message.</param>
+            <returns>Message that was sent.</returns>
+        </member>
+        <member name="M:DSharpPlus.CommandsNext.CommandContext.RespondWithFilesAsync(System.Collections.Generic.Dictionary{System.String,System.IO.Stream},System.String,System.Boolean,DSharpPlus.DiscordEmbed)">
+            <summary>
+            Quickly respond with multiple files to the message that triggered the command.
+            </summary>
+            <param name="content">Message to respond with.</param>
+            <param name="files">Files to send.</param>
+            <param name="is_tts">Whether the message is to be spoken aloud.</param>
+            <param name="embed">Embed to attach to the message.</param>
+            <returns>Message that was sent.</returns>
+        </member>
+        <member name="M:DSharpPlus.CommandsNext.CommandContext.TriggerTypingAsync">
+            <summary>
+            Triggers typing in the channel containing the message that triggered the command.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:DSharpPlus.CommandsNext.Exceptions.ChecksFailedException">
+            <summary>
+            Indicates that one or more checks for given command have failed.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.CommandsNext.Exceptions.ChecksFailedException.Command">
+            <summary>
+            Gets the command that was executed.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.CommandsNext.Exceptions.ChecksFailedException.Context">
+            <summary>
+            Gets the context in which given command was executed.
+            </summary>
+        </member>
+        <member name="M:DSharpPlus.CommandsNext.Exceptions.ChecksFailedException.#ctor(System.String,DSharpPlus.CommandsNext.Command,DSharpPlus.CommandsNext.CommandContext)">
+            <summary>
+            Creates a new <see cref="T:DSharpPlus.CommandsNext.Exceptions.ChecksFailedException"/>.
+            </summary>
+            <param name="message">Message that describes the error.</param>
+            <param name="command">Command that failed to execute.</param>
+            <param name="ctx">Context in which the command was executed.</param>
+        </member>
+        <member name="T:DSharpPlus.CommandsNext.Exceptions.CommandExistsException">
+            <summary>
+            Indicates that given command name or alias is taken.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.CommandsNext.Exceptions.CommandExistsException.CommandName">
+            <summary>
+            Gets the name of the command that already exists.
+            </summary>
+        </member>
+        <member name="M:DSharpPlus.CommandsNext.Exceptions.CommandExistsException.#ctor(System.String,System.String)">
+            <summary>
+            Creates a new exception indicating that given command name is already taken.
+            </summary>
+            <param name="message">Message that describes the error.</param>
+            <param name="name">Name of the command that was taken.</param>
+        </member>
+        <member name="T:DSharpPlus.CommandsNext.Exceptions.CommandNotFoundException">
+            <summary>
+            Thrown when the command service fails to find a command.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.CommandsNext.Exceptions.CommandNotFoundException.Command">
+            <summary>
+            Gets the name of the command that was not found.
+            </summary>
+        </member>
+        <member name="M:DSharpPlus.CommandsNext.Exceptions.CommandNotFoundException.#ctor(System.String,System.String)">
+            <summary>
+            Creates a new <see cref="T:DSharpPlus.CommandsNext.Exceptions.CommandNotFoundException"/>.
+            </summary>
+            <param name="message">Message that describes the error.</param>
+            <param name="command">Command that was not found.</param>
+        </member>
+    </members>
+</doc>

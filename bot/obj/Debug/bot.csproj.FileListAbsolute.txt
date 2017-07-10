@@ -1,0 +1,15 @@
+c:\Users\Denis\documents\visual studio 2017\Projects\vitalik\bot\bin\Debug\bot.exe.config
+c:\Users\Denis\documents\visual studio 2017\Projects\vitalik\bot\bin\Debug\bot.exe
+c:\Users\Denis\documents\visual studio 2017\Projects\vitalik\bot\bin\Debug\bot.pdb
+c:\Users\Denis\documents\visual studio 2017\Projects\vitalik\bot\bin\Debug\DSharpPlus.dll
+c:\Users\Denis\documents\visual studio 2017\Projects\vitalik\bot\bin\Debug\Newtonsoft.Json.dll
+c:\Users\Denis\documents\visual studio 2017\Projects\vitalik\bot\bin\Debug\Sodium.dll
+c:\Users\Denis\documents\visual studio 2017\Projects\vitalik\bot\bin\Debug\DSharpPlus.xml
+c:\Users\Denis\documents\visual studio 2017\Projects\vitalik\bot\bin\Debug\Newtonsoft.Json.xml
+c:\Users\Denis\documents\visual studio 2017\Projects\vitalik\bot\obj\Debug\bot.csprojResolveAssemblyReference.cache
+c:\Users\Denis\documents\visual studio 2017\Projects\vitalik\bot\obj\Debug\bot.exe
+c:\Users\Denis\documents\visual studio 2017\Projects\vitalik\bot\obj\Debug\bot.pdb
+c:\Users\Denis\documents\visual studio 2017\Projects\vitalik\bot\bin\Debug\DSharpPlus.CommandsNext.dll
+c:\Users\Denis\documents\visual studio 2017\Projects\vitalik\bot\bin\Debug\DSharpPlus.VoiceNext.dll
+c:\Users\Denis\documents\visual studio 2017\Projects\vitalik\bot\bin\Debug\DSharpPlus.CommandsNext.xml
+c:\Users\Denis\documents\visual studio 2017\Projects\vitalik\bot\bin\Debug\DSharpPlus.VoiceNext.xml

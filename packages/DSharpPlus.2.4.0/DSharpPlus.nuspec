@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>DSharpPlus</id>
+    <version>2.4.0</version>
+    <authors>Naamloos, afroraydude, DrCreo, Death, Axiom, Emzi0767, and contributors</authors>
+    <owners>Naamloos, afroraydude, DrCreo, Death, Axiom, Emzi0767, and contributors</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <licenseUrl>https://github.com/NaamloosDT/DSharpPlus/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/NaamloosDT/DSharpPlus</projectUrl>
+    <iconUrl>https://raw.githubusercontent.com/NaamloosDT/DSharpPlus/master/logo/dsharpplus.png</iconUrl>
+    <description>A C# API for Discord based off DiscordSharp, but rewritten to fit the API standards.</description>
+    <tags>Discord, Discord API, Discord Bots, Chat, DSharp, DSharpPlus</tags>
+    <repository type="Git" url="https://github.com/NaamloosDT/DSharpPlus" />
+    <dependencies>
+      <group targetFramework=".NETStandard2.0">
+        <dependency id="System.Net.WebSockets.Client" version="4.3.1" exclude="Build,Analyzers" />
+        <dependency id="System.Net.WebSockets" version="4.3.0" exclude="Build,Analyzers" />
+        <dependency id="NETStandard.Library" version="1.6.1" exclude="Build,Analyzers" />
+        <dependency id="System.Runtime.InteropServices.RuntimeInformation" version="4.3.0" exclude="Build,Analyzers" />
+        <dependency id="Newtonsoft.Json" version="10.0.2" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework=".NETStandard1.1">
+        <dependency id="NETStandard.Library" version="1.6.1" exclude="Build,Analyzers" />
+        <dependency id="System.Net.Http" version="4.3.2" exclude="Build,Analyzers" />
+        <dependency id="System.Runtime.InteropServices.RuntimeInformation" version="4.3.0" exclude="Build,Analyzers" />
+        <dependency id="Newtonsoft.Json" version="10.0.2" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework=".NETStandard1.3">
+        <dependency id="System.Net.WebSockets.Client" version="4.3.1" exclude="Build,Analyzers" />
+        <dependency id="System.Net.WebSockets" version="4.3.0" exclude="Build,Analyzers" />
+        <dependency id="NETStandard.Library" version="1.6.1" exclude="Build,Analyzers" />
+        <dependency id="System.Net.Http" version="4.3.2" exclude="Build,Analyzers" />
+        <dependency id="System.Runtime.InteropServices.RuntimeInformation" version="4.3.0" exclude="Build,Analyzers" />
+        <dependency id="Newtonsoft.Json" version="10.0.2" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework=".NETFramework4.7">
+        <dependency id="Newtonsoft.Json" version="10.0.2" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework=".NETFramework4.6">
+        <dependency id="Newtonsoft.Json" version="10.0.2" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework=".NETFramework4.5">
+        <dependency id="Newtonsoft.Json" version="10.0.2" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="System.Net.Http" targetFramework=".NETFramework4.5, .NETFramework4.6, .NETFramework4.7" />
+    </frameworkAssemblies>
+  </metadata>
+</package>
