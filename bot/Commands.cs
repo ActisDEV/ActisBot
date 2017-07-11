@@ -1,11 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using DSharpPlus;
 using DSharpPlus.CommandsNext;
 using DSharpPlus.CommandsNext.Attributes;
+using IniParser;
+using IniParser.Model;
 
 namespace bot
 {
@@ -58,7 +57,7 @@ namespace bot
         [Description("Магический шар, выдающий инфу")]
         [Aliases("info")]
 
-        public async Task MagicBall(CommandContext ctx, [Description("Анализируемое сообщение")] string message)
+        public async Task MagicBall(CommandContext ctx, [Description("Анализируемая инфа")] string message)
         {
             await ctx.TriggerTypingAsync();
 
@@ -73,13 +72,13 @@ namespace bot
         [Description("Магический шар, определяющий когда произойдут события")]
         [Aliases("date", "when")]
 
-        public async Task DateBall(CommandContext ctx, [Description("Анализируемая инфа")] string message)
+        public async Task DateBall(CommandContext ctx, [Description("Анализируемое событие")] string message)
         {
             await ctx.TriggerTypingAsync();
 
-            Random random = new Random();
+            var random = new Random();
 
-            DateTime date = new DateTime();
+            var date = new DateTime();
             date = DateTime.Now;
 
             int year = date.Year;
@@ -107,6 +106,56 @@ namespace bot
             }
 
             await ctx.RespondAsync($"{ctx.Member.Mention} Это событие произойдёт {randomDay}.{randomMonth}.{randomYear}");
+        }
+
+        [Command ("quiz")]
+        [Description("Выводит вопрос из викторины")]
+
+        public async Task Quiz(CommandContext ctx)
+        {
+            await ctx.TriggerTypingAsync();
+
+            var random = new Random();
+            var parser = new FileIniDataParser();
+            IniData data = parser.ReadFile("quiz.ini");
+
+            int key = random.Next(1,50);
+            string keyStr = Convert.ToString(key);
+
+            KeyDataCollection keyCol = data["questions"];
+            string question = keyCol[keyStr];
+
+            Console.WriteLine(question);
+
+            await ctx.RespondAsync($"{ctx.Member.Mention} Вот твой вопрос: ");
+            await ctx.TriggerTypingAsync();
+            await ctx.RespondAsync($"{ctx.Member.Mention} {question} Номер: {key} ");
+            await ctx.TriggerTypingAsync();
+            await ctx.RespondAsync($"{ctx.Member.Mention} Введи a!answer {key} <твой ответ>, чтобы ответить");
+        }
+
+        [Command("answer")]
+        [Description("Ответ на вопрос a!quiz")]
+        
+        public async Task Answer(CommandContext ctx, [Description("Номер вопроса")] int key, [Description("Ответ")] string answer)
+        {
+            await ctx.TriggerTypingAsync();
+
+            var parser = new FileIniDataParser();
+            IniData data = parser.ReadFile("quiz.ini");
+
+            KeyDataCollection keyCol = data["answers"];
+            string keyStr = Convert.ToString(key);
+            string answerTrue = keyCol[keyStr];
+            
+            if (answer.Equals(answerTrue))
+            {
+                await ctx.RespondAsync($"{ctx.Member.Mention} :white_check_mark: Твой ответ верный!");
+            }
+            else
+            {
+                await ctx.RespondAsync($"{ctx.Member.Mention} :x: Твой ответ неверный!");
+            }
         }
     }
 }

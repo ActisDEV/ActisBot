@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>ini-parser</id>
+    <version>2.4.0</version>
+    <title>INI Parser</title>
+    <authors>Ricardo Amores Hernández</authors>
+    <owners>rickyah</owners>
+    <licenseUrl>https://github.com/rickyah/ini-parser/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/rickyah/ini-parser</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>A .NET, Mono and Unity3d compatible(*) library for reading/writing INI data from IO streams, file streams, and strings written in C#.</description>
+    <summary>A simple C# library for reading and writing INI files
+
+.NET, Mono and Unity3d compatible(*) library for reading/writing INI data from IO streams, file streams, and strings; written in C#.
+
+Also implements merging operations, both for complete ini files, sections, or even just a subset of the keys contained by the files.
+
+(*) This library is 100% .NET code and does not have any dependencies on Windows API calls in order to be portable.</summary>
+    <releaseNotes>New configuration AllowCreateSectionsOnFly.
+When true if you access a non existing section using the indexer the section is
+created on the fly instead of throwing an exception.
+Defaults to false</releaseNotes>
+    <tags>ini inifile iniconfig config configuration</tags>
+  </metadata>
+</package>
