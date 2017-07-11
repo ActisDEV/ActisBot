@@ -9,4 +9,6 @@ a!hi - здоровается
 a!random <int first> <int second> - выводит случайное число в заданном диапозоне
 a!magicball <string message> - выводит вероятность заданного события (joke)
 a!dateball <string message> - выводит дату заданного события (joke)
+a!quiz - выводит вопрос викторины
+a!answer <int key> <string answer> - ответ на вопрос викторины
 ```
