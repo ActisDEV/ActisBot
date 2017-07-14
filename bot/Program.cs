@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using DSharpPlus;
 using DSharpPlus.CommandsNext;
 using DSharpPlus.CommandsNext.Exceptions;
+using DSharpPlus.VoiceNext;
+using DSharpPlus.VoiceNext.Codec;
 using Newtonsoft.Json;
 
 namespace bot
@@ -13,6 +15,7 @@ namespace bot
     {
         public DiscordClient Client { get; set; }
         public CommandsNextModule Commands { get; set; }
+        public VoiceNextClient Voice { get; set; }
 
         public static void Main(string[] args)
         {
@@ -60,7 +63,14 @@ namespace bot
 
             this.Commands.RegisterCommands<UngrouppedCommands>();
             this.Commands.RegisterCommands<AdminCommands>();
-            //this.Commands.RegisterCommands<ExecutableGroup>();
+           // this.Commands.RegisterCommands<AudioCommands>(); //непонятные проблемы с опусом, так что пока заблокируем
+
+            var vcfg = new VoiceNextConfiguration
+            {
+                VoiceApplication = VoiceApplication.Music
+            };
+
+            this.Voice = this.Client.UseVoiceNext(vcfg);
 
             await this.Client.ConnectAsync();
 

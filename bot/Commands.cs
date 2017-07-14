@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using DSharpPlus;
 using DSharpPlus.CommandsNext;
 using DSharpPlus.CommandsNext.Attributes;
+//using DSharpPlus.VoiceNext;
 using IniParser;
 using IniParser.Model;
 
@@ -270,4 +271,70 @@ namespace bot
             await ctx.RespondAsync("", embed: embed);
         }
     }
+
+   /* [Group("audio")]
+    [Description("Аудио-команды")]
+    [Hidden]*/
+
+  /*  public class AudioCommands
+    {
+        //команды выполняются a!audio <комманда>
+
+        [Command("join")]
+        [Description("Присоединение к голосовому каналу")]
+
+        public async Task Join(CommandContext ctx, DiscordChannel chnl = null)
+        {
+            var vnext = ctx.Client.GetVoiceNextClient();
+            if (vnext == null)
+            {
+                await ctx.RespondAsync($"{ctx.Member.Mention} VNext не сконфигрурирован");
+                return;
+            }
+
+            var vnc = vnext.GetConnection(ctx.Guild);
+
+            if (vnc != null)
+            {
+                await ctx.RespondAsync($"{ctx.Member.Mention} Уже присоединён");
+                return;
+            }
+
+            var vstat = ctx.Member?.VoiceState;
+
+            if ((vstat == null || vstat.Channel == null) && chnl == null)
+            {
+                await ctx.RespondAsync($"{ctx.Member.Mention} Ты не в голосовом канале!");
+                return;
+            }
+
+            if (chnl == null)
+                chnl = vstat.Channel;
+
+            vnc = await vnext.ConnectAsync(chnl);
+
+            await ctx.RespondAsync($"{ctx.Member.Mention} Присоединяюсь к каналу");
+        }
+
+        [Command("leave")]
+        [Description("Отключение от канала")]
+        [RequirePermissions(Permissions.MoveMembers)]
+
+        public async Task Leave(CommandContext ctx)
+        {
+            var vnext = ctx.Client.GetVoiceNextClient();
+
+            var vnc = vnext.GetConnection(ctx.Guild);
+            if (vnc == null)
+            {
+                await ctx.RespondAsync($"{ctx.Member.Mention} Не присоединён");
+                return;
+            }
+
+            // disconnect
+            vnc.Disconnect();
+
+            await ctx.RespondAsync($"{ctx.Member.Mention} Отключен");
+        }
+    } */ //проблемы с опусом
 }
