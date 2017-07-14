@@ -1,0 +1,17 @@
+C:\Users\Denis\Documents\Visual Studio 2017\Projects\actisbot\ActisBot\bot\bin\Release\bot.exe.config
+C:\Users\Denis\Documents\Visual Studio 2017\Projects\actisbot\ActisBot\bot\bin\Release\bot.exe
+C:\Users\Denis\Documents\Visual Studio 2017\Projects\actisbot\ActisBot\bot\bin\Release\bot.pdb
+C:\Users\Denis\Documents\Visual Studio 2017\Projects\actisbot\ActisBot\bot\bin\Release\DSharpPlus.CommandsNext.dll
+C:\Users\Denis\Documents\Visual Studio 2017\Projects\actisbot\ActisBot\bot\bin\Release\DSharpPlus.dll
+C:\Users\Denis\Documents\Visual Studio 2017\Projects\actisbot\ActisBot\bot\bin\Release\DSharpPlus.VoiceNext.dll
+C:\Users\Denis\Documents\Visual Studio 2017\Projects\actisbot\ActisBot\bot\bin\Release\INIFileParser.dll
+C:\Users\Denis\Documents\Visual Studio 2017\Projects\actisbot\ActisBot\bot\bin\Release\Newtonsoft.Json.dll
+C:\Users\Denis\Documents\Visual Studio 2017\Projects\actisbot\ActisBot\bot\bin\Release\Sodium.dll
+C:\Users\Denis\Documents\Visual Studio 2017\Projects\actisbot\ActisBot\bot\bin\Release\DSharpPlus.xml
+C:\Users\Denis\Documents\Visual Studio 2017\Projects\actisbot\ActisBot\bot\bin\Release\DSharpPlus.CommandsNext.xml
+C:\Users\Denis\Documents\Visual Studio 2017\Projects\actisbot\ActisBot\bot\bin\Release\DSharpPlus.VoiceNext.xml
+C:\Users\Denis\Documents\Visual Studio 2017\Projects\actisbot\ActisBot\bot\bin\Release\INIFileParser.xml
+C:\Users\Denis\Documents\Visual Studio 2017\Projects\actisbot\ActisBot\bot\bin\Release\Newtonsoft.Json.xml
+C:\Users\Denis\Documents\Visual Studio 2017\Projects\actisbot\ActisBot\bot\obj\Release\bot.exe
+C:\Users\Denis\Documents\Visual Studio 2017\Projects\actisbot\ActisBot\bot\obj\Release\bot.pdb
+C:\Users\Denis\Documents\Visual Studio 2017\Projects\actisbot\ActisBot\bot\obj\Release\bot.csprojResolveAssemblyReference.cache

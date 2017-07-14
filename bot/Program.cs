@@ -59,7 +59,7 @@ namespace bot
             this.Commands.CommandErrored += this.Commands_CommandErrored;
 
             this.Commands.RegisterCommands<UngrouppedCommands>();
-            //this.Commands.RegisterCommands<GrouppedCommands>();
+            this.Commands.RegisterCommands<AdminCommands>();
             //this.Commands.RegisterCommands<ExecutableGroup>();
 
             await this.Client.ConnectAsync();

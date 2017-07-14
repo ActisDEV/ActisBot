@@ -148,7 +148,7 @@ namespace bot
             string keyStr = Convert.ToString(key);
             string answerTrue = keyCol[keyStr];
             
-            if (answer.Equals(answerTrue))
+            if (answer.ToLower().Equals(answer))
             {
                 await ctx.RespondAsync($"{ctx.Member.Mention} :white_check_mark: Твой ответ верный!");
             }
@@ -156,6 +156,118 @@ namespace bot
             {
                 await ctx.RespondAsync($"{ctx.Member.Mention} :x: Твой ответ неверный!");
             }
+        }
+    }
+
+    [Group("admin")]
+    [Description("Административные команды")]
+    [Hidden]
+
+    public class AdminCommands
+    {
+        //команды выполняются a!admin <команда> <аргументы>
+        [Command("sudo")]
+        [Description("Выполнение команды от имени другого пользователя")]
+        [RequirePermissions(Permissions.ManageGuild)]
+        [Hidden]
+        public async Task Sudo(CommandContext ctx, [Description("Пользователь, от чьего имени будет исполнена команда")] DiscordMember member, [Description("Команда для выполнения")] string command)
+        {
+            await ctx.TriggerTypingAsync();
+            var cmds = ctx.Client.GetCommandsNext();
+
+            await cmds.SudoAsync(member, ctx.Channel, command);
+        }
+
+        [Command("setnick")]
+        [Description("Изменение ника пользователя")]
+        [RequirePermissions(Permissions.ManageNicknames)]
+        [Hidden]
+        public async Task Setnick(CommandContext ctx, [Description("Пользователь, которому изменяется ник")] DiscordMember member, [RemainingText, Description("Устанавливаемый ник")] string newNick)
+        {
+            await ctx.TriggerTypingAsync();
+            if (newNick.Equals("Actis"))
+            {
+                await ctx.RespondAsync($"Да пошёл ты нахуй, {ctx.User.Username}");
+            }
+            else
+            {
+                try
+                {
+                    await member.ModifyAsync(newNick, reason: $"Changed by {ctx.User.Username} ({ctx.User.Id})");
+
+                    await ctx.RespondAsync($"Никнейм {member.Username} был изменён на {newNick} администратором {ctx.User.Username}");
+                }
+                catch (Exception)
+                {
+                    await ctx.RespondAsync($"Никнейм {member.Username} не может быть изменён на {newNick}");
+                }
+            }
+        }
+
+        [Command("kick")]
+        [Description("Кик пользователя")]
+        [RequirePermissions(Permissions.KickMembers)]
+        [Hidden]
+        public async Task Kick(CommandContext ctx, [Description("Исключаемый пользователь")] DiscordMember member, [RemainingText, Description("Причина")] string reason)
+        {
+            await ctx.TriggerTypingAsync();
+            DiscordGuild guild = new DiscordGuild();
+            guild = member.Guild;
+            try
+            {
+                await guild.RemoveMemberAsync(member, reason);
+                await ctx.RespondAsync($"Пользователь @{member.Username}#{member.Discriminator} был исключён администратором {ctx.User.Username}");
+            }
+            catch (Exception)
+            {
+                await ctx.RespondAsync($"Пользователь {member.Username} не может быть исключён");
+            }
+        }
+
+        [Command("ban")]
+        [Description("Бан пользователя")]
+        [RequirePermissions(Permissions.BanMembers)]
+        [Hidden]
+        public async Task Ban(CommandContext ctx, [Description("Блокируемый пользователь")] DiscordMember member, [Description("За сколько дней удалить сообщения?")] int days, [RemainingText, Description("Причина")] string reason)
+        {
+            await ctx.TriggerTypingAsync();
+            DiscordGuild guild = new DiscordGuild();
+            guild = member.Guild;
+            try
+            {
+                await guild.BanMemberAsync(member, days, reason);
+                await ctx.RespondAsync($"Пользователь @{member.Username}#{member.Discriminator} был исключён администратором {ctx.User.Username}");
+            }
+            catch (Exception)
+            {
+                await ctx.RespondAsync($"Пользователь {member.Username} не может быть заблокирован");
+            }
+        }
+
+        [Command("getanswer")]
+        [Description("Получает ответ на вопрос викторины")]
+        [RequirePermissions(Permissions.ManageGuild)]
+        [Hidden]
+        public async Task GetAnswer(CommandContext ctx, [Description("Номер вопроса на который нужно получить ответ")] int key)
+        {
+            var parser = new FileIniDataParser();
+            IniData data = parser.ReadFile("quiz.ini");
+
+            string keyStr = Convert.ToString(key);
+            KeyDataCollection qCol = data["questions"];
+            KeyDataCollection keyCol = data["answers"];
+
+            string q = qCol[keyStr]; //вопрос
+            string a = keyCol[keyStr]; //ответ
+
+            var embed = new DiscordEmbed
+            {
+                Title = "Вопрос: " + q,
+                Description = "Ответ: " + a,
+                Color = 0xFFFF00
+            };
+
+            await ctx.RespondAsync("", embed: embed);
         }
     }
 }
