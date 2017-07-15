@@ -149,7 +149,7 @@ namespace bot
             string keyStr = Convert.ToString(key);
             string answerTrue = keyCol[keyStr];
             
-            if (answer.ToLower().Equals(answer))
+            if (answer.ToLower().Equals(answerTrue))
             {
                 await ctx.RespondAsync($"{ctx.Member.Mention} :white_check_mark: Твой ответ верный!");
             }
